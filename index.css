@@ -1,0 +1,68 @@
+.title {
+    font-size: 30px;
+}
+.artista {
+    font-size: 25px;
+}
+
+.time-song {
+    font-size: 20px;
+}
+
+/* */
+.title,
+.artista,
+.time-song {
+    text-align: center;
+    color: white;
+    padding: 5px;
+}
+
+
+.navigator {
+    border: 1px solid #156918;
+    padding: 6px;
+    border-radius: 10px;
+}
+
+.container {
+    background-origin: 1px solid black;
+    max-width: 400px;
+    border-radius: 10px;
+    margin: 0 auto;
+
+}
+
+.card {
+    background-color: #4CAF50;
+    padding: 10px;
+
+}
+
+.image-card {
+    padding: 10px;
+    background-color: #156918;
+    border-radius: 6px;
+    max-height: 200px;
+
+}
+
+.image-card>img {
+    max-width: 200px;
+}
+
+
+.image-card>img {
+    animation: rotaMusica 5s infinite;
+}
+
+@keyframes rotaMusica {
+    0% {
+        rotate: 0deg;
+    }
+
+    100% {
+        rotate: 360deg;
+
+    }
+}
