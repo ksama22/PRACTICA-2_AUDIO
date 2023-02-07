@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Music Top</title>
-    <link rel="stylesheet" href="index.css"> 
+    <link rel="stylesheet" href="index.css">
 </head>
 
 <body>
@@ -24,13 +24,30 @@
             <div class="time-song">3:00</div>
             <!--Un navegador per actualitzar l'estat de la musica-->
             <div class="navigator">
-                <div class="reproductor">
-                    <div class="icon"></div>
-                    <div class="icon"></div>
-                    <div class="icon"></div>
+                <div id="reproductor">
+                    <!-- https://fonts.google.com/icons?icon.query=play&icon.set=Material+Icons -->
+                    <div id="playBack">
+                        <img src="images/skip_previous_black_24dp.svg" width="30" alt="Play Button">
+                    </div>
+                    <div id="playNow">
+                        <img src="images/play_circle_filled_black_24dp.svg" width="30" alt="Play Button">
+                    </div>
+                    <div id="playNext">
+                        <img src="images/skip_next_black_24dp.svg" width="30" alt="Play Button">
+                    </div>
+                    <div id="playVolume">
+                        <input type="range" id="volume" name="volume" min="0" max="100">
+                        <label for="volume">Volume</label>
+                    </div>
                 </div>
             </div>
         </div>
+    </div>
+    <div class="musicos">
+        <div class="musica"></div>
+        <div class="musica"></div>
+        <div class="musica"></div>
+        <div class="musica"></div>
     </div>
 </body>
 
