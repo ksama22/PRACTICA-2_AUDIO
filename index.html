@@ -7,17 +7,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Music Top</title>
     <link rel="stylesheet" href="index.css">
+    <script src="dades.js"></script>
     <script src="index.js"></script>
 </head>
 
-<body>
+<body onload="refreshData()">
     <div class="container">
         <!-- crea una carta de musica-->
         <div class="card">
             <!--  la imatge de la carta dintre del div-->
             <div class="image-card">
-                <img src="https://freesvg.org/img/1547768973.png" alt="https://freesvg.org/music-microphone-logo"
-                    height="200" width="200">
+                <img id="rotateImage" src="https://freesvg.org/img/1547768973.png"
+                    alt="https://freesvg.org/music-microphone-logo" height="200" width="200">
             </div>
             <!-- te 3 apartats: titol, artista i temps-->
             <div class="title">Cançó 1</div>
@@ -28,13 +29,15 @@
                 <div id="reproductor">
                     <!-- https://fonts.google.com/icons?icon.query=play&icon.set=Material+Icons -->
                     <div id="playBack">
-                        <img src="images/skip_previous_black_24dp.svg" width="30" alt="Play Button">
+                        <img onclick="backMusic()" src="images/skip_previous_black_24dp.svg" width="30"
+                            alt="Play Button">
                     </div>
                     <div id="playNow">
-                        <img src="images/play_circle_filled_black_24dp.svg" width="30" alt="Play Button">
+                        <img onclick="playMusic()" src="images/play_circle_filled_black_24dp.svg" width="30"
+                            alt="Play Button">
                     </div>
                     <div id="playNext">
-                        <img src="images/skip_next_black_24dp.svg" width="30" alt="Play Button">
+                        <img onclick="nextMusic()" src="images/skip_next_black_24dp.svg" width="30" alt="Play Button">
                     </div>
                     <div id="playVolume">
                         <input type="range" id="volume" name="volume" min="0" max="100">
