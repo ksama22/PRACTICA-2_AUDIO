@@ -45,11 +45,12 @@
 
 .image-card > img {
   max-width: 200px;
+  border-radius: 50%;
 }
 
-.image-card > img {
+/*.image-card > img {
   animation: rotaMusica 5s infinite;
-}
+}*/
 
 #reproductor {
   display: grid;
@@ -86,7 +87,7 @@
     rotate: 360deg;
   }
 }
-.musica:nth-child(1){
+/*.musica:nth-child(1){
     animation-delay:0.2s
 }
 
@@ -98,12 +99,12 @@
 }
 .musica:nth-child(4){
     animation-delay:1s
-}
+}*/
 
 .musica{
     padding: 10px;
     background-color: red;
-    animation: musicamaestro 1s infinite;
+    /*animation: musicamaestro 1s infinite; */
     margin: 10px;
     width: 10px;
 }
