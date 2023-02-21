@@ -1,4 +1,5 @@
 
+
 var indexSong = 0;
 var audio = new Audio(canciones[indexSong]);
 var isPlaying = false;
@@ -31,29 +32,51 @@ function format(numero) {
 }
 
 function playMusic() {
+    //document.getElementById("icon-play").classList.replace("pause_circle_filled", "play_circle_filled");
     //Pausa la animacion quan no esta reproduint
-    playPauseAnimation(true)
-    isPlaying = true;
+    playAnimation()
+    if (isPlaying) {
+        isPlaying = false;
+        document.getElementById("icon-play").innerText = "pause_circle_filled";
+        pauseAnimation();
+        audio.pause();
+    } else {
+        isPlaying = true;
+        playAnimation();
+        document.getElementById("icon-play").innerText = "play_circle_filled";
+
+        audio.play();
+    }
+    console.log(document.getElementById("icon-play").innerText);
 }
 
 function backMusic() {
+    audio.pause();
     //Para la cancion anterior
     //audio.stop();
     //Si intenta anar una cancion mes petita retorna el minim
     if (indexSong - 1 >= 0) {
         indexSong--;
     }
+    pauseAnimation()
     refreshData();
+    isPlaying = false;
+
 }
 
 function nextMusic() {
+    audio.pause();
     //Para la cancion anterior
     //audio.stop();
     //Si intenta anar una cancion mes gran retorna el minim
     if (indexSong + 1 < canciones.length) {
         indexSong++;
     }
+    pauseAnimation()
+
     refreshData();
+    isPlaying = false;
+
 }
 
 function refreshData() {
@@ -62,28 +85,42 @@ function refreshData() {
     document.getElementsByClassName("artista")[0].innerText = cancionOBJ.artista;
     document.getElementById("rotateImage").src = cancionOBJ.image;
     audio = new Audio(canciones[indexSong].path);
-    console.log("Cancion actual", cancionOBJ);
+    //console.log("Cancion actual", cancionOBJ);
 
     // Reseteja el contador
     sec = 0
     min = 0;
+    //Posa el contador a cero
+    document.getElementsByClassName("time-song")[0].innerHTML = format(min) + ":" + format(sec);
+
 }
 
-function playPauseAnimation(state) {
-    if (state) {
-        for (let i = 0; i < document.getElementsByClassName("musica").length; i++) {
-            document.getElementsByClassName("musica")[i].style.animation = "musicamaestro 1s infinite";
-            //titleQuizHTML.style.animationFillMode = "forwards";
-            document.getElementsByClassName("musica")[i].style.animationDelay = i * 0.2 + "s";
-        }
-        document.getElementById("rotateImage").style.animation = "rotaMusica 5s infinite";
-    } else {
-        for (let i = 0; i < document.getElementsByClassName("musica").length; i++) {
-            document.getElementsByClassName("musica")[i].style.animation = "none";
-        }
-        document.getElementById("rotateImage").style.animation = "none";
+function changeVolume() {
+    let a = document.getElementById("volume-input").value;
+    audio.volume = parseFloat(a) / 100;
+    console.log("volumen", a, audio.volume);
+}
+
+function playAnimation() {
+    //Carrega la animacio per cada barra i li posa un delay a cadascun
+    let barresMusicals = document.getElementsByClassName("musica");
+    for (let i = 0; i < barresMusicals.length; i++) {
+        barresMusicals[i].style.animation = "musicamaestro 1s infinite";
+        barresMusicals[i].style.animationDelay = i * 0.2 + "s";
     }
-    console.log(canciones);
+    //Carrega la animacio al la imatge per girar
+    document.getElementById("rotateImage").style.animation = "rotaMusica 8s infinite linear";
+}
+
+function pauseAnimation() {
+    //Treu la animacio per cada barra 
+    let barresMusicals = document.getElementsByClassName("musica");
+    //Si l'estat es false treu les animacions
+    for (let i = 0; i < barresMusicals.length; i++) {
+        barresMusicals[i].style.animation = "none";
+    }
+    //Treu la animacio al la imatge per girar
+    document.getElementById("rotateImage").style.animation = "none";
 }
 
 setInterval(bucle, 1000);

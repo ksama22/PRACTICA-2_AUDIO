@@ -1,10 +1,11 @@
 let canciones = [
   {
     "id": 0,
-    "titol": "The Riddle",
-    "image": "https://i1.sndcdn.com/artworks-000217816187-caa36p-t500x500.jpg",
-    "artista": "Gigi D'Agostino",
-    "path": "./audio/riddle.mp3"
+    "titol": "Beauty",
+    "image": "https://freemusicarchive.org/image/?file=album_image%2FpKlgqvGWsiEMtYtNGuq2d6AQawaXc3V84tLgjYDH.png&width=290&height=290&type=album",
+    "artista": "HoliznaPATREON",
+    "path": "./audio/HoliznaPATREON_Beauty.mp3",
+    "license":"Attribution-NonCommercial-NoDerivatives 4.0 International License."
   },
   {
     "id": 1,

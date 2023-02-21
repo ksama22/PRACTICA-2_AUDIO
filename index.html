@@ -9,9 +9,17 @@
     <link rel="stylesheet" href="index.css">
     <script src="dades.js"></script>
     <script src="index.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
 </head>
 
 <body onload="refreshData()">
+    <div class="musicos">
+        <div class="musica"></div>
+        <div class="musica"></div>
+        <div class="musica"></div>
+        <div class="musica"></div>
+    </div>
     <div class="container">
         <!-- crea una carta de musica-->
         <div class="card">
@@ -29,29 +37,22 @@
                 <div id="reproductor">
                     <!-- https://fonts.google.com/icons?icon.query=play&icon.set=Material+Icons -->
                     <div id="playBack">
-                        <img onclick="backMusic()" src="images/skip_previous_black_24dp.svg" width="30"
-                            alt="Play Button">
+                        <span onclick="backMusic()" class="material-icons">skip_previous_black</span>
                     </div>
                     <div id="playNow">
-                        <img onclick="playMusic()" src="images/play_circle_filled_black_24dp.svg" width="30"
-                            alt="Play Button">
+                        <span onclick="playMusic()" id="icon-play" class="material-icons">pause_circle_filled</span>
                     </div>
                     <div id="playNext">
-                        <img onclick="nextMusic()" src="images/skip_next_black_24dp.svg" width="30" alt="Play Button">
+                        <span onclick="nextMusic()" class="material-icons">skip_next_black</span>
                     </div>
                     <div id="playVolume">
-                        <input type="range" id="volume" name="volume" min="0" max="100">
+                        <input onchange="changeVolume()" type="range" id="volume-input" name="volume" min="0" max="100"
+                            value="100">
                         <label for="volume">Volume</label>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="musicos">
-        <div class="musica"></div>
-        <div class="musica"></div>
-        <div class="musica"></div>
-        <div class="musica"></div>
     </div>
 </body>
 
