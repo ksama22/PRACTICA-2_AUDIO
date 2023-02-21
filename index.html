@@ -6,29 +6,52 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Music Top</title>
-    <link rel="stylesheet" href="index.css"> 
+    <link rel="stylesheet" href="index.css">
+    <script src="dades.js"></script>
+    <script src="index.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
 </head>
 
-<body>
+<body onload="refreshData()">
+    <div class="musicos">
+        <div class="musica"></div>
+        <div class="musica"></div>
+        <div class="musica"></div>
+        <div class="musica"></div>
+    </div>
     <div class="container">
         <!-- crea una carta de musica-->
         <div class="card">
             <!--  la imatge de la carta dintre del div-->
             <div class="image-card">
-                <img src="https://freesvg.org/img/1547768973.png" alt="https://freesvg.org/music-microphone-logo"
-                    height="200" width="200">
+                <img id="rotateImage" src="https://freesvg.org/img/1547768973.png"
+                    alt="https://freesvg.org/music-microphone-logo" height="200" width="200">
             </div>
             <!-- te 3 apartats: titol, artista i temps-->
             <div class="title">Cançó 1</div>
             <div class="artista">Artista 1</div>
-            <div class="time-song">3:00</div>
+            <div class="time-song">0:00</div>
             <!--Un navegador per actualitzar l'estat de la musica-->
             <div class="navigator">
-                <div class="reproductor">
-                    <div class="icon"></div>
-                    <div class="icon"></div>
-                    <div class="icon"></div>
+                <div id="reproductor">
+                    <!-- https://fonts.google.com/icons?icon.query=play&icon.set=Material+Icons -->
+                    <div id="playBack">
+                        <span onclick="backMusic()" class="material-icons">skip_previous_black</span>
+                    </div>
+                    <div id="playNow">
+                        <span onclick="playMusic()" id="icon-play" class="material-icons">pause_circle_filled</span>
+                    </div>
+                    <div id="playNext">
+                        <span onclick="nextMusic()" class="material-icons">skip_next_black</span>
+                    </div>
+                    <div id="playVolume">
+                        <input onchange="changeVolume()" type="range" id="volume-input" name="volume" min="0" max="100"
+                            value="100">
+                        <label for="volume" class="material-icons">volume_up</label>
+                    </div>
                 </div>
+
             </div>
         </div>
     </div>
