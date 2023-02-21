@@ -1,16 +1,19 @@
-
-
 var indexSong = 0;
 var audio = new Audio(canciones[indexSong]);
-var isPlaying = false;
 
 //Inicializa los segundos y minutos
 let sec = 0;
 let min = 0;
 //Esto se llama en bucle
 function bucle() {
-    if (isPlaying) {
+    if (!audio.paused) {
         goTimer();
+    }
+
+    //Pasa de cancion si finaliza 
+    if (audio.currentTime >= audio.duration){
+        nextMusic();
+        playMusic();
     }
 }
 function goTimer() {
@@ -24,6 +27,7 @@ function goTimer() {
     }
 }
 
+
 function format(numero) {
     if (numero < 10) {
         return "0" + numero;
@@ -35,16 +39,13 @@ function playMusic() {
     //document.getElementById("icon-play").classList.replace("pause_circle_filled", "play_circle_filled");
     //Pausa la animacion quan no esta reproduint
     playAnimation()
-    if (isPlaying) {
-        isPlaying = false;
+    if (!audio.paused) {
         document.getElementById("icon-play").innerText = "pause_circle_filled";
         pauseAnimation();
         audio.pause();
     } else {
-        isPlaying = true;
         playAnimation();
         document.getElementById("icon-play").innerText = "play_circle_filled";
-
         audio.play();
     }
     console.log(document.getElementById("icon-play").innerText);
@@ -60,8 +61,6 @@ function backMusic() {
     }
     pauseAnimation()
     refreshData();
-    isPlaying = false;
-
 }
 
 function nextMusic() {
@@ -75,8 +74,6 @@ function nextMusic() {
     pauseAnimation()
 
     refreshData();
-    isPlaying = false;
-
 }
 
 function refreshData() {
