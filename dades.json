@@ -1,0 +1,26 @@
+[
+  {
+    "id": 0,
+    "titol": "Beauty",
+    "image": "./images/imatge1.webp",
+    "artista": "Holizna",
+    "durada": 138,
+    "path": "./audio/HoliznaPATREON_Beauty.mp3"
+  },
+  {
+    "id": 1,
+    "titol": "Elevator",
+    "image": "./images/imatge2.webp",
+    "artista": "Kevin Macleod",
+    "durada": 100,
+    "path": "./audio/elevator.mp3"
+  },
+  {
+    "id": 2,
+    "titol": "Soul",
+    "image": "./images/imatge3.png",
+    "artista": "Richard Harson",
+    "durada": 58,
+    "path": "./audio/soul_searching.mp3"
+  }
+]
